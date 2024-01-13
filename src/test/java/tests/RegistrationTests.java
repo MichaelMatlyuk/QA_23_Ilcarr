@@ -8,7 +8,9 @@ import org.testng.annotations.Test;
 
 import java.util.Random;
 
-public class RegistrationTests  extends TestBase{
+public class RegistrationTests extends TestBase {
+
+
     @BeforeMethod
     public void preConditions() {
         if (app.getHelperUser().isLogged()) {
@@ -16,7 +18,6 @@ public class RegistrationTests  extends TestBase{
         }
 
     }
-
     @Test
     public void registrationSuccess(){
         Random random = new Random();
@@ -30,15 +31,17 @@ public class RegistrationTests  extends TestBase{
                 .withPassword("Ssnow9876542$");
         app.getHelperUser().openRegistrationForm();
         app.getHelperUser().fillRegistrationForm(user);
-        app.getHelperUser().checkPolicy();
+        app.getHelperUser().checkPolicyXY();
         app.getHelperUser().submit();
         Assert.assertEquals(app.getHelperUser().getMessage(), "You are logged in success");
+
     }
+
 
     @AfterMethod
     public void postConditions() {
         app.getHelperUser().clickOkButton();
-
     }
+
 
 }

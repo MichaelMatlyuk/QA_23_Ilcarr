@@ -21,10 +21,10 @@ public class LoginTests extends TestBase {
     @Test
     public void loginSuccess1() {
         User user = new User().withEmail("misha123@gmail.com").withPassword("Polaris@!090300");
-
-      //  user.setEmail("misha123@gmail.com");
-      //  user.setPassword("Polaris@!090300");
-
+/*
+        user.setEmail("misha123@gmail.com");
+        user.setPassword("Polaris@!090300");
+*/
 
         app.getHelperUser().openLoginForm();
         app.getHelperUser().fillLoginForm(user);
@@ -56,6 +56,8 @@ public class LoginTests extends TestBase {
         //Assert if element with text "Logged in success" is present
         Assert.assertEquals(app.getHelperUser().getMessage(), "Logged in success");
         //app.getHelperUser().clickOkButton();
+
+
     }
 
     @Test
